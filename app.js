@@ -15,6 +15,7 @@ rl.question(`what is ${ num1 } + ${ num2 }? \n`,(userInput) => {
         rl.prompt();
 
         rl.on('line',(userInput) =>{
+            
             if(userInput.trim() == answer){
                 rl.close();
             }
