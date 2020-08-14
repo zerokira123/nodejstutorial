@@ -1,48 +1,61 @@
 const fs = require('fs');
 
+//creating an Folder and File
 
-// create a file
+// fs.mkdir('tutorial',(err)=>{
+//     if(err)
+//     console.log(err);
+//     else{
+//          console.log('Folder was succcesfully Created');
+//          fs.writeFile('./tutorial/example.txt','123',(err) => {
+//             if(err)
+//             console.log(err);
+//             else{
+//                 console.log('Successfully created file')
+//             }
+//         });
 
-fs.writeFile('example.txt',"this is an example",(err) => {
+//     }
+// });
+
+
+//Deleting an Folder and File
+
+// fs.unlink('./tutorial/example.txt',(err) => {
+
+//     if(err)
+//     console.log(err);
+//     else
+//     {
+//     console.log('successfully deleted the file');
+//         fs.rmdir('tutorial',(err)=>{
+
+//             if(err)
+//                 console.log(err);
+//             else{
+//                 console.log('Folder was Deleted successfully');
+//             }
+
+//         });
+//     }
+// });
+
+// delting multiple files in a directory
+
+fs.readdir('example',(err,files) => {
     if(err)
     console.log(err);
-    else
-    {
-     console.log('File successfully created');
+    else{
+        for(let file of files)
+        fs.unlink('./example/' + file,(err) =>{
 
-     fs.readFile('example.txt','utf8',(err,file) => {
-        if(err)
-        console.log(err);
-        else
-        console.log(file);
-     });
+            if(err)
+            console.log(err);
+            else{
+                console.log('successfully deleted file')
+            }
+
+        });
     }
 
- });
-
-// Reanme a file
-
-// fs.rename('example.txt','rename.txt',(err) =>{
-//     if(err)
-//     console.log(err);
-//     else
-//     console.log('succesfully renamed the file');
-// });
-
-// Append a file
-
-// fs.appendFile('rename.txt',' some data being appended',(err) =>{
-//     if(err)
-//     console.log(err);
-//     else
-//     console.log('Successfully appended data to the file');
-// });
-
-// Delete a file
-
-// fs.unlink('rename.txt',(err) => {
-//     if(err)
-//     console.log(err);
-//     else
-//     console.log('successfully deleted the file');
-// });
+});
