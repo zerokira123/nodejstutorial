@@ -1,34 +1,48 @@
-const readline = require('readline');
-const rl = readline.createInterface({input : process.stdin, output : process.stdout});
+const fs = require('fs');
 
-let num1 = Math.floor((Math.random() *10) + 1);
-let num2 = Math.floor((Math.random() *10) + 1);
-let answer = num1 + num2;
 
-rl.question(`what is ${ num1 } + ${ num2 }? \n`,(userInput) => {
+// create a file
 
-    if(userInput.trim() == answer){
-        rl.close();
-    }
-    else{
-        rl.setPrompt('Incorrect Answer try again\n');
-        rl.prompt();
+fs.writeFile('example.txt',"this is an example",(err) => {
+    if(err)
+    console.log(err);
+    else
+    {
+     console.log('File successfully created');
 
-        rl.on('line',(userInput) =>{
-
-            if(userInput.trim() == answer){
-                rl.close();
-            }
-            else{
-                rl.setPrompt(`your answer of ${ userInput } is Incorrect \n`);
-                rl.prompt();
-            }
-        })
-    
+     fs.readFile('example.txt','utf8',(err,file) => {
+        if(err)
+        console.log(err);
+        else
+        console.log(file);
+     });
     }
 
-})
+// })
 
-rl.on('close',() =>{
-    console.log('correct answer')
-})
+// Reanme a file
+
+// fs.rename('example.txt','rename.txt',(err) =>{
+//     if(err)
+//     console.log(err);
+//     else
+//     console.log('succesfully renamed the file');
+// });
+
+// Append a file
+
+// fs.appendFile('rename.txt',' some data being appended',(err) =>{
+//     if(err)
+//     console.log(err);
+//     else
+//     console.log('Successfully appended data to the file');
+// });
+
+// Delete a file
+
+// fs.unlink('rename.txt',(err) => {
+//     if(err)
+//     console.log(err);
+//     else
+//     console.log('successfully deleted the file');
+// });
