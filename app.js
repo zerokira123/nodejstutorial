@@ -18,7 +18,7 @@ fs.writeFile('example.txt',"this is an example",(err) => {
      });
     }
 
-// })
+ });
 
 // Reanme a file
 
