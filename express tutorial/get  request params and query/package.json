@@ -1,0 +1,23 @@
+{
+  "name": "nodejstutorial",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zerokira123/nodejstutorial.git"
+  },
+  "author": "kira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zerokira123/nodejstutorial/issues"
+  },
+  "homepage": "https://github.com/zerokira123/nodejstutorial#readme",
+  "keywords": [],
+  "description": "",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
