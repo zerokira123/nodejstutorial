@@ -19,7 +19,7 @@ app.post('/',(req,res) =>{
         email : Joi.string().trim().email().required(),
         password : Joi.string().min(5).max(12).trim().required(),
     });
-    Joi.validate(req.body,(err,result) => {
+    Joi.validate(req.body,schema,(err,result) => {
         if(err){
             console.log(err);
             res.send('an error has occured');
