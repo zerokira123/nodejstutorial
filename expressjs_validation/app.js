@@ -17,18 +17,15 @@ app.post('/',(req,res) =>{
     
     const schema = Joi.object().keys({
         email : Joi.string().trim().email().required(),
-        password : Joi.string().min(5).max(12).trim().required(),
+        password : Joi.string().min(5).max(12).trim().required()
     });
     Joi.validate(req.body,schema,(err,result) => {
         if(err){
             console.log(err);
             res.send('an error has occured');
         }
-        else{
             console.log(result);
             res.send('succesfully posted data');
-
-        }
 
     })
 });
