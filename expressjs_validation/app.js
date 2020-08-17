@@ -12,22 +12,22 @@ app.get('/',(req,res) => {
     res.sendFile(path.join(__dirname,'static','index.html' ));
 });
 
-app.post('/',(req,res) =>{
+app.post("/", (req, res) => {
     console.log(req.body);
-    
+    // JOI works based on schema we create
     const schema = Joi.object().keys({
         email : Joi.string().trim().email().required(),
-        password : Joi.string().min(5).max(12).trim().required()
+        password : Joi.string().min(5).max(10).required()
     });
-    Joi.validate(req.body,schema,(err,result) => {
-        if(err){
+    Joi.validate(req.body, schema, (err, result) => {
+        if (err) {
             console.log(err);
-            res.send('an error has occured');
-        }
+            res.send("an error occurred!!");
+        } else {
             console.log(result);
             res.send('succesfully posted data');
-
-    })
+        }
+    });
 });
 
 app.listen(3000);
